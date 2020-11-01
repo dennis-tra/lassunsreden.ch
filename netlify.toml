@@ -1,0 +1,24 @@
+[build]
+    publish = "public"
+    command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+    environment = { HUGO_VERSION = "0.75.1", HUGO_ENABLEGITINFO = "true" }
+
+# Production context: all deploys from the Production branch set in your site's
+# deploy contexts will inherit these settings.
+[context.production]
+    command = "hugo --gc --minify -b $URL"
+    environment = { HUGO_ENV = "production" }
+
+# Deploy Preview context: all deploys generated from a pull/merge request will
+# inherit these settings.
+[context.deploy-preview]
+    environment = { HUGO_ENV = "development" }
+
+# Branch Deploy context: all deploys that are not from a pull/merge request or
+# from the Production branch will inherit these settings.
+[context.branch-deploy]
+    environment = { HUGO_ENV = "staging" }
+
+# Staging context: only deploys from the staging branch
+[context.staging]
+    environment = { HUGO_ENV = "production" }
