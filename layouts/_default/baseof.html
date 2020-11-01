@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Font -->
+    <!-- Google is clever about how it serves fonts to each user. It doesn’t deliver the same CSS to everyone, 
+            but decides what stylesheet to serve based on the user’s device, browser, and various other factors. -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <title>Beratung & Therapie | Marie Lass</title>
+
+    {{ $style := resources.Get "scss/main.scss" | resources.ToCSS (dict "outputStyle" "compressed") | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+
+</head>
+
+<body>
+    {{ partial "header" . }}
+
+    {{ block "main" . }}{{ end }}
+
+    {{ partial "footer" . }}
+
+</body>
+
+</html>
