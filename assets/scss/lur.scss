@@ -1,4 +1,4 @@
-section {
+.white-gradient {
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 255) 50%,
@@ -24,6 +24,10 @@ section {
       max-height: 400px;
     }
   }
+}
+
+#hero > .container {
+  height: calc(100vh - 56px);
 }
 
 .banner {
