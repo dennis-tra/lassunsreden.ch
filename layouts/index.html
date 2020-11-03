@@ -1,6 +1,4 @@
----
-layout: single
----
+{{ define "main" }}
 <section id="hero">
     <div class="container d-flex flex-fill flex-column justify-content-center align-items-center">
         <h1>Beratung & Therapie</h1>
@@ -66,8 +64,7 @@ layout: single
         </div>
     </div>
 </section>
-<section id="about-me" class="white-gradient">
-    <img class="background" src="/img/boy-stairs-cropped.jpg" alt="Junge vor vielen Stufen">
+<section id="about-me">
     <div class="container py-5">
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -87,8 +84,42 @@ layout: single
                     (Schule, Jugendamt, ect.) frei mit den Wünschen der Klientinnen und Klienten arbeiten. Dies
                     unterstützt eine ehrliche und direkte Zusammenarbeit.</p>
             </div>
+            <div class="col-lg-6">
+            </div>
         </div>
     </div>
+
+
+    <h3 class="text-center text-uppercase border-top border-bottom p-4 m-0">Ausbildung</h3>
+
+    <div class="vita p-4">
+        {{ range $idx, $entry := $.Site.Data.vita.education }}
+        <div class="py-3 d-flex justify-content-center vita-entry">
+            <div class="vita-time">{{ $entry.time }}</div>
+            <div class="vita-center p-1 mx-3">
+                <div class="verticle-line {{ if gt $idx 0 }}subsequent{{ end }}"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="vita-description">{{ $entry.description }}</div>
+        </div>
+        {{ end }}
+    </div>
+
+    <h3 class="text-center text-uppercase border-top border-bottom p-4 m-0">Berufliche Laufbahn</h3>
+
+    <div class="vita p-4">
+        {{ range $idx, $entry := $.Site.Data.vita.work_experience }}
+        <div class="py-3 d-flex justify-content-center vita-entry">
+            <div class="vita-time">{{ $entry.time }}</div>
+            <div class="vita-center p-1 mx-3">
+                <div class="verticle-line {{ if gt $idx 0 }}subsequent{{ end }}"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="vita-description">{{ $entry.description }}</div>
+        </div>
+        {{ end }}
+    </div>
+
 </section>
 
 <section id="pricing" class="bg-primary text-white">
@@ -115,3 +146,4 @@ layout: single
         </div>
     </div>
 </section>
+{{ end }}

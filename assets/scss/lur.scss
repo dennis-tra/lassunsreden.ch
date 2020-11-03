@@ -55,3 +55,71 @@
     font-weight: 100;
   }
 }
+
+.vita .vita-entry {
+  .vita-center {
+    display: flex;
+    width: 20px;
+    flex-direction: column;
+    padding-top: 0.5rem;
+    position: relative;
+
+    .dot {
+      $dot-size: 8px;
+      position: absolute;
+      top: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: $dot-size;
+      width: $dot-size;
+      border-radius: 50%;
+      background: $primary;
+    }
+
+    .verticle-line {
+      position: absolute;
+      width: 1px;
+      bottom: 0;
+      top: 0.5rem;
+      left: 50%;
+      background-color: $gray-200;
+      transform: translateX(-50%);
+      z-index: -1;
+
+      &.subsequent {
+        top: -6rem;
+      }
+    }
+  }
+
+  .vita-time {
+    text-align: right;
+    min-width: 75px;
+
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      width: 200px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      width: 200px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      width: 400px;
+    }
+  }
+
+  .vita-description {
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      width: 400px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      width: 500px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      width: 400px;
+    }
+  }
+}
