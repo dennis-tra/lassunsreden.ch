@@ -99,7 +99,7 @@
       .verticle-line {
         position: absolute;
         width: 1px;
-        bottom: -$spacer;
+        bottom: 0;
         top: 0.5rem;
         left: 50%;
         background-color: $gray-200;
@@ -107,7 +107,7 @@
         z-index: -1;
 
         &.subsequent {
-          top: -$spacer;
+          top: -2 * $spacer;
         }
       }
     }
@@ -126,4 +126,9 @@
       }
     }
   }
+}
+
+img.portrait {
+  width: 200px;
+  box-shadow: 0px 0px 8px 0px $dark;
 }

@@ -67,7 +67,10 @@
 <section id="about-me">
     <div class="container py-5">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col mb-5 order-lg-2 col-lg-6 d-flex justify-content-center align-items-center">
+                <img class="portrait rounded-circle" src="/img/marie-portrait-scaled-compressed.jpeg">
+            </div>
+            <div class="col col-12 col-lg-6">
                 <h2>Über mich</h2>
                 <p class="lead">
                     Mein Name ist Marie Lass.
@@ -84,39 +87,20 @@
                     (Schule, Jugendamt, ect.) frei mit den Wünschen der Klientinnen und Klienten arbeiten. Dies
                     unterstützt eine ehrliche und direkte Zusammenarbeit.</p>
             </div>
-            <div class="col-lg-6">
-            </div>
         </div>
     </div>
 
-
     <h3 class="text-center text-uppercase border-top border-bottom p-4 m-0">Ausbildung</h3>
-
     <div class="vita p-4">
         {{ range $idx, $entry := $.Site.Data.vita.education }}
-        <div class="py-3 d-flex justify-content-center vita-entry">
-            <div class="vita-time">{{ $entry.time | safeHTML }}</div>
-            <div class="vita-center p-1 mx-3">
-                <div class="verticle-line {{ if gt $idx 0 }}subsequent{{ end }}"></div>
-                <div class="dot"></div>
-            </div>
-            <div class="vita-description">{{ $entry.description | safeHTML }}</div>
-        </div>
+        {{ partial "vita-entry.html" (dict "entry" . "idx" $idx ) }}
         {{ end }}
     </div>
 
     <h3 class="text-center text-uppercase border-top border-bottom p-4 m-0">Berufliche Laufbahn</h3>
-
     <div class="vita p-4">
         {{ range $idx, $entry := $.Site.Data.vita.work_experience }}
-        <div class="py-3 d-flex justify-content-center vita-entry">
-            <div class="vita-time">{{ $entry.time | safeHTML }}</div>
-            <div class="vita-center p-1 mx-3">
-                <div class="verticle-line {{ if gt $idx 0 }}subsequent{{ end }}"></div>
-                <div class="dot"></div>
-            </div>
-            <div class="vita-description">{{ $entry.description | safeHTML }}</div>
-        </div>
+        {{ partial "vita-entry.html" (dict "entry" . "idx" $idx ) }}
         {{ end }}
     </div>
 
