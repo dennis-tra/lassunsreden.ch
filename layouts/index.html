@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section id="hero">
     <div class="container d-flex flex-fill flex-column justify-content-center align-items-center">
-        <h1>Beratung & Therapie</h1>
+        <h1>Beratung & Therapie in Kreuzlingen</h1>
         <h2>Marie Lass</h2>
     </div>
 </section>
@@ -15,51 +15,42 @@
     </div>
 </section>
 
-<section id="offer" class="white-gradient">
-    <img class="background" src="/img/boy-stairs-cropped.jpg" alt="Junge vor vielen Stufen">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <h2>Systemische Beratung und Therapie</h2>
-                <p class="lead">
-                    Der systemische Ansatz betrachtet ein Problem im System, in dem es entsteht.
-                </p>
-                <p>Das System kann zum Beispiel eine Familie, ein Paar oder ein Team sein. Möglich ist aber auch, das
-                    innere Team einer einzelnen Person auf systemische Weise zu betrachten. Auf überaus wertschätzende
-                    Art hilft diese Betrachtungsweise dabei, neue Perspektiven zu eröffnen und die Last von den
-                    Schultern einer einzelnen Person zu nehmen. Mit fachlich fundierten und gleichzeitig lebendigen
-                    Methoden werden Sie durch mich angeleitet, mit sich und ihrem System in Bewegung zu kommen. Denn
-                    Bewegung macht Veränderung möglich.</p>
+<section id="offer">
+    <div class="white-gradient">
+        <img class="background" src="/img/boy-stairs-cropped.jpg" alt="Junge vor vielen Stufen">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h2>Systemische Beratung und Therapie</h2>
+                    <p class="lead">
+                        Der systemische Ansatz betrachtet ein Problem im System, in dem es entsteht.
+                    </p>
+                    <p>Das System kann zum Beispiel eine Familie, ein Paar oder ein Team sein. Möglich ist aber auch,
+                        das
+                        innere Team einer einzelnen Person auf systemische Weise zu betrachten. Auf überaus
+                        wertschätzende
+                        Art hilft diese Betrachtungsweise dabei, neue Perspektiven zu eröffnen und die Last von den
+                        Schultern einer einzelnen Person zu nehmen. Mit fachlich fundierten und gleichzeitig lebendigen
+                        Methoden werden Sie durch mich angeleitet, mit sich und ihrem System in Bewegung zu kommen. Denn
+                        Bewegung macht Veränderung möglich.</p>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<section class="my-5">
-    <div class="container">
-        <div class="row justify-content-around">
-            <div class="col-8 col-sm-3 col-md-3 text-center text-dark">
-                <div class="my-3">
-                    <svg class="bi" width="32" height="32" fill="currentColor">
-                        <use xlink:href="/icons/bootstrap-icons.svg#heart-fill" />
-                    </svg>
+    <h3 class="text-center text-uppercase my-4 m-0">Unterstützung bei</h3>
+    <div class="my-5">
+        <div class="container">
+            <div class="row justify-content-around">
+                {{ range $.Site.Data.support.callouts }}
+                <div class="col-6 col-md-6 col-lg-3 text-center text-dark my-4">
+                    <div class="my-3">
+                        <svg class="bi" width="32" height="32" fill="currentColor">
+                            <use xlink:href="/icons/bootstrap-icons.svg#{{ .icon }}" />
+                        </svg>
+                    </div>
+                    <p class="lead">{{ .text | safeHTML }}</p>
                 </div>
-                <p>Kleiner text, kleiner text und so</p>
-            </div>
-            <div class="col-8 col-sm-3 col-md-3 text-center text-dark">
-                <div class="my-3">
-                    <svg class="bi" width="32" height="32" fill="currentColor">
-                        <use xlink:href="/icons/bootstrap-icons.svg#toggles" />
-                    </svg>
-                </div>
-                <p>Kleiner text, kleiner text und so</p>
-            </div>
-            <div class="col-8 col-sm-3 col-md-3 text-center text-dark">
-                <div class="my-3">
-                    <svg class="bi" width="32" height="32" fill="currentColor">
-                        <use xlink:href="/icons/bootstrap-icons.svg#shop" />
-                    </svg>
-                </div>
-                <p>Kleiner text, kleiner text und so</p>
+                {{ end }}
             </div>
         </div>
     </div>
