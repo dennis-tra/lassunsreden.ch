@@ -5,6 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{ .Params.description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
+    <meta property="og:image" content="{{ "/img/marie-portrait-scaled-compressed.jpeg" | absURL }}" />
+
 
     <!-- Font -->
     <!-- Google is clever about how it serves fonts to each user. It doesn’t deliver the same CSS to everyone, 
@@ -15,7 +24,7 @@
     <script src="/js/jquery-3.5.1.min.js"></script>
     <script src="/js/bootstrap-4.3.1.min.js"></script>
 
-    <title>Beratung & Therapie | Marie Lass</title>
+    <title>{{ .Title }}</title>
 
     {{ $style := resources.Get "scss/main.scss" | resources.ToCSS (dict "outputStyle" "compressed") | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
