@@ -95,12 +95,12 @@
     <div class="vita p-4">
         {{ range $idx, $entry := $.Site.Data.vita.education }}
         <div class="py-3 d-flex justify-content-center vita-entry">
-            <div class="vita-time">{{ $entry.time }}</div>
+            <div class="vita-time">{{ $entry.time | safeHTML }}</div>
             <div class="vita-center p-1 mx-3">
                 <div class="verticle-line {{ if gt $idx 0 }}subsequent{{ end }}"></div>
                 <div class="dot"></div>
             </div>
-            <div class="vita-description">{{ $entry.description }}</div>
+            <div class="vita-description">{{ $entry.description | safeHTML }}</div>
         </div>
         {{ end }}
     </div>
@@ -110,12 +110,12 @@
     <div class="vita p-4">
         {{ range $idx, $entry := $.Site.Data.vita.work_experience }}
         <div class="py-3 d-flex justify-content-center vita-entry">
-            <div class="vita-time">{{ $entry.time }}</div>
+            <div class="vita-time">{{ $entry.time | safeHTML }}</div>
             <div class="vita-center p-1 mx-3">
                 <div class="verticle-line {{ if gt $idx 0 }}subsequent{{ end }}"></div>
                 <div class="dot"></div>
             </div>
-            <div class="vita-description">{{ $entry.description }}</div>
+            <div class="vita-description">{{ $entry.description | safeHTML }}</div>
         </div>
         {{ end }}
     </div>
