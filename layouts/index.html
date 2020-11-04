@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<section id="offer">
+<section id="offer" class="mb-5">
     <div class="white-gradient">
         <img class="background" src="/img/boy-stairs-cropped.jpg" alt="Junge vor vielen Stufen">
         <div class="container py-5">
@@ -37,10 +37,10 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center text-uppercase my-4 m-0">Unterstützung bei</h3>
-    <div class="my-5">
+    <div class="py-4">
         <div class="container">
-            <div class="row justify-content-around">
+            <h3 class="text-center my-4 m-0">Ich biete Unterstützung bei</h3>
+            <div class="row justify-content-around my-4">
                 {{ range $.Site.Data.support.callouts }}
                 <div class="col-6 col-md-6 col-lg-3 text-center text-dark my-4">
                     <div class="my-3">
@@ -52,11 +52,18 @@
                 </div>
                 {{ end }}
             </div>
+            <div class="lur-jumbotron">
+                <p class="m-0 text-center">
+                    Sollten Sie sich und ihr Thema in den genannten
+                    Beispielen nicht wiederfinden, können wir gerne in einem persönlichen
+                    Gespräch herausfinden, ob Sie bei mir gut aufgehoben sind.
+                </p>
+            </div>
         </div>
     </div>
 </section>
 <section id="about-me">
-    <div class="container py-5">
+    <div class="container pb-5">
         <div class="row">
             <div class="col mb-5 order-lg-2 col-lg-6 d-flex justify-content-center align-items-center">
                 <img class="portrait rounded-circle" src="/img/marie-portrait-scaled-compressed.jpeg">
