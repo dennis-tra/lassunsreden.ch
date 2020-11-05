@@ -1,8 +1,8 @@
 .white-gradient {
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 255) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255, 255, 255, 255) 30%,
+    rgba(255, 255, 255, 0) 80%
   );
   position: relative;
   overflow: hidden;
@@ -65,6 +65,7 @@
 
       @media (min-width: map-get($grid-breakpoints, "sm")) {
         width: 200px;
+        min-width: inherit;
       }
 
       @media (min-width: map-get($grid-breakpoints, "md")) {
