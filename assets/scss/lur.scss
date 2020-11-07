@@ -139,6 +139,10 @@ img.portrait {
   padding: 2rem 4rem;
   background-color: rgba($primary, 0.05);
   border-radius: 0.3rem;
+  .price {
+    min-width: 60px;
+    text-align: right;
+  }
 }
 
 .mt-6 {
@@ -165,4 +169,27 @@ img.portrait {
 .my-7 {
   margin-bottom: 8 * $spacer;
   margin-top: 8 * $spacer;
+}
+
+footer {
+  ul {
+    padding-left: $spacer;
+    list-style-type: none;
+  }
+
+  .love {
+    font-size: $font-size-sm;
+    margin: 0;
+
+    .heart-icon {
+      color: #fff13b;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "sm") - 1) {
+    text-align: center;
+    ul {
+      padding: 0;
+    }
+  }
 }
