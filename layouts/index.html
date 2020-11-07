@@ -157,19 +157,72 @@
                 <p class="lead">
                     Sie haben ein Anliegen und möchten mich kontaktieren?
                 </p>
-                <form>
-                    <div class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="E-Mail eingeben">
-                    </div>
-                    <div class="form-group">
-                        <label for="concern">Anliegen</label>
-                        <textarea class="form-control" id="concern" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" aria-describedby="contactHelp">Abschicken</button>
-                    <small id="contactHelp" class="form-text text-muted">Ihre Daten werden <a href="/privacy">niemals an
-                            Dritte weitergeben</a>.</small>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        const formSuccess = $("#form-success");
+                        const formError = $("#form-error");
+                        const contactForm = $("#contact-form");
+                        const contactFormFieldset = $("#contact-form fieldset");
+                        const submitBtn = $("#contact-form button");
+                        submitBtn.click(async function (e) {
+                            e.preventDefault();
+
+                            const formData = contactForm.serializeArray().reduce((p, c) => ({ [c.name]: c.value, ...p }), {})
+
+                            contactFormFieldset.attr("disabled", true)
+                            $.ajax({
+                                type: "POST",
+                                url: "https://hooks.zapier.com/hooks/catch/8883211/ol2cjld",
+                                data: formData,
+                                success: function (r) {
+                                    contactFormFieldset.attr("disabled", null)
+                                    formSuccess.removeClass("d-none")
+                                    formSuccess.addClass("d-flex");
+                                    contactForm.addClass("d-none");
+                                },
+                                error: (xhr, status, error) => {
+                                    contactFormFieldset.attr("disabled", null)
+                                    formError.removeClass("d-none");
+                                    console.error(xhr);
+                                },
+                                dataType: "json",
+                            });
+                        });
+                    });
+                </script>
+                <div id="form-error" class="d-none alert alert-danger" role="alert">
+                    Beim Absenden ist ein Fehler aufgetreten.
+                </div>
+                <form id="contact-form">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" name="email" class="form-control" id="email"
+                                placeholder="E-Mail eingeben">
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="street">Straße</label> <!-- Honey pot -->
+                            <input type="street" name="street" class="form-control" id="street" placeholder="Straße">
+                        </div>
+                        <div class="form-group">
+                            <label for="concern">Anliegen</label>
+                            <textarea class="form-control" id="concern" name="concern" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"
+                            aria-describedby="contactPrivacy">Abschicken</button>
+                        <small id="contactPrivacy" class="form-text text-muted">Schauen Sie <a href="/privacy">hier</a>
+                            was mit Ihren Daten passiert.</small>
+                    </fieldset>
                 </form>
+                <div id="form-success"
+                    class="d-none text-primary lur-jumbotron my-2 p-4 justify-content-between align-items-center">
+                    <span class="w-25">
+                        <svg class="bi" width="32" height="32" fill="currentColor">
+                            <use xlink:href="/icons/bootstrap-icons.svg#check2" />
+                        </svg>
+                    </span>
+                    <span>Vielen Dank für Ihre Kontaktanfrage. Ich melde mich so schnell wie möglich zurück.</span>
+                </div>
             </div>
             <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center text-primary mt-4 mt-sm-0">
                 <span><svg class="bi" width="100" height="100" fill="currentColor">
