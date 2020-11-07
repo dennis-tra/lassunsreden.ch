@@ -28,6 +28,15 @@
 
 #hero > .container {
   height: calc(100vh - 56px);
+
+  @media (max-width: map-get($grid-breakpoints, "sm")-1) {
+    h1 {
+      font-size: 8vw;
+    }
+    h2 {
+      font-size: 7vw;
+    }
+  }
 }
 
 .banner {
@@ -142,6 +151,10 @@ img.portrait {
   .price {
     min-width: 60px;
     text-align: right;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "sm") - 1) {
+    padding: 2rem 2rem;
   }
 }
 

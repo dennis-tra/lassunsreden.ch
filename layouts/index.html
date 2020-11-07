@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section id="hero">
     <div class="container d-flex flex-fill flex-column justify-content-center align-items-center text-center">
-        <h1>Beratung & Therapie in Kreuzlingen</h1>
+        <h1>Beratung & Therapie <br class="d-sm-none" />in Kreuzlingen</h1>
         <h2>Marie Lass</h2>
     </div>
 </section>
@@ -103,11 +103,12 @@
 </section>
 
 
-<section class="banner">
+<section class="banner my-4">
     <div class="container py-5">
         <p class="text-center lead text-bold">Lass uns reden, Problem!</p>
     </div>
 </section>
+<!-- <h3 class="text-center text-uppercase border-top border-bottom p-4 m-0">Lass uns reden, Problem!</h3> -->
 
 <section id="pricing">
     <div class="container py-5">
@@ -125,7 +126,7 @@
                     einplanen.
                 </p>
             </div>
-            <div class="col-12 col-lg-5 d-flex flex-column justify-content-center">
+            <div class="col-12 col-lg-5 d-flex flex-column justify-content-center mt-3 mt-sm-0">
                 <div class="lur-jumbotron my-2 d-flex justify-content-between align-items-center">
                     <span>
                         Preis pro Gespräch vor Ort:
@@ -147,6 +148,7 @@
 </section>
 
 <hr>
+
 <section id="contact">
     <div class="container py-5">
         <div class="row">
@@ -158,22 +160,18 @@
                 <form>
                     <div class="form-group">
                         <label for="email">E-Mail</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                            placeholder="E-Mail eingeben">
-                        <small id="emailHelp" class="form-text text-muted">Ihre E-Mail-Adresse wird <a
-                                href="/privacy">niemals an Dritte weitergeben</a>.</small>
+                        <input type="email" class="form-control" id="email" placeholder="E-Mail eingeben">
                     </div>
                     <div class="form-group">
                         <label for="concern">Anliegen</label>
                         <textarea class="form-control" id="concern" rows="3"></textarea>
-                        <small id="emailHelp" class="form-text text-muted">Ihre Anliegen wird ebenfalls <a
-                                href="/privacy">niemals an
-                                Dritte weitergeben</a>.</small>
                     </div>
-                    <button type="submit" class="btn btn-primary">Abschicken</button>
+                    <button type="submit" class="btn btn-primary" aria-describedby="contactHelp">Abschicken</button>
+                    <small id="contactHelp" class="form-text text-muted">Ihre Daten werden <a href="/privacy">niemals an
+                            Dritte weitergeben</a>.</small>
                 </form>
             </div>
-            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center text-primary">
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center text-primary mt-4 mt-sm-0">
                 <span><svg class="bi" width="100" height="100" fill="currentColor">
                         <use xlink:href="/icons/bootstrap-icons.svg#envelope" />
                     </svg></span>
