@@ -155,6 +155,16 @@ img.portrait {
   }
 }
 
+.lur-jumbotron-primary {
+  color: $primary;
+  background-color: rgba($primary, 0.05);
+}
+
+.lur-jumbotron-yellow {
+  color: darken($yellow, 10);
+  background-color: rgba($yellow, 0.1);
+}
+
 .mt-6 {
   margin-top: 5 * $spacer;
 }
