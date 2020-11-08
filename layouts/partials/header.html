@@ -1,4 +1,12 @@
 <header class="sticky-top ">
+      <script>
+            // Collapse navbar on tap
+            $(document).ready(function () {
+                  $(".navbar-nav li a").click(function (event) {
+                        $(".navbar-collapse").collapse('hide');
+                  });
+            });
+      </script>
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-white">
             <div class="container">
                   <a class="navbar-brand d-none d-sm-inline" href="/">
@@ -15,7 +23,7 @@
                   <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ml-lg-auto">
                               <li class="nav-item mr-3">
-                                    <a class="nav-link" href="/#">Home</a>
+                                    <a class="nav-link" href="#">Home</a>
                               </li>
                               <li class="nav-item mr-3">
                                     <a class="nav-link" href="/#offer">Angebot</a>

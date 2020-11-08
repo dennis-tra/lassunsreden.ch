@@ -1,7 +1,7 @@
 .white-gradient {
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 255) 30%,
+    rgba(255, 255, 255, 255) 50%,
     rgba(255, 255, 255, 0) 80%
   );
   position: relative;
@@ -250,4 +250,8 @@ input[type="checkbox"] {
     text-align: center;
     line-height: 26px;
   }
+}
+
+section {
+  scroll-margin-top: 56px;
 }
