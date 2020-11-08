@@ -1,0 +1,106 @@
+<script type="text/javascript">
+    function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+    $(document).ready(function () {
+        var formSuccess = $("#form-success");
+        var formError = $("#form-error");
+        var contactForm = $("#contact-form");
+        var contactFormFieldset = $("#contact-form fieldset");
+        var contactFormSubmitBtn = $("#contact-form button");
+
+        contactFormSubmitBtn.click(function (e) {
+            e.preventDefault();
+
+            var formData = contactForm.serializeArray().reduce(function (p, c) {
+                return Object.assign({}, p, _defineProperty({}, c.name, c.value));
+            }, {});
+
+            var successFunc = function successFunc() {
+                contactFormFieldset.attr("disabled", null);
+                formSuccess.removeClass("d-none");
+                formSuccess.addClass("d-flex");
+                contactForm.addClass("d-none");
+            };
+
+            var errorFunc = function error(xhr, status, _error) {
+                contactFormFieldset.attr("disabled", null);
+                formError.removeClass("d-none");
+                console.error(xhr);
+            };
+
+            // Return early if honeypot is set.
+            if (formData.street) {
+                successFunc();
+                return;
+            }
+
+            var requiredFields = ["email", "concern", "privacy"];
+            var hasError = false;
+            for (let i = 0; i < requiredFields.length; i++) {
+                var field = requiredFields[i];
+                if (!formData[field]) {
+                    hasError = true;
+                    $("#" + field).addClass("is-invalid");
+                } else {
+                    $("#" + field).removeClass("is-invalid");
+                }
+            }
+
+            if (hasError) {
+                return;
+            }
+
+            contactFormFieldset.attr("disabled", true);
+
+            $.ajax({
+                type: "POST",
+                url: "https://hooks.zapier.com/hooks/catch/8883211/ol2cjld",
+                data: formData,
+                success: successFunc,
+                error: errorFunc,
+                dataType: "json"
+            });
+        });
+    });
+</script>
+<div id="form-error" class="d-none alert alert-danger" role="alert">
+    Beim Absenden ist ein Fehler aufgetreten.
+</div>
+<form id="contact-form">
+    <fieldset>
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="E-Mail eingeben">
+        </div>
+        <div class="form-group d-none">
+            <label for="street">Straße</label> <!-- Honey pot -->
+            <input type="street" name="street" class="form-control" id="street" placeholder="Straße">
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefonnummer (optional)</label>
+            <input type="tel" name="phone" class="form-control" id="phone" placeholder="Telefonnummer">
+        </div>
+        <div class="form-group">
+            <label for="concern">Ihre Nachricht</label>
+            <textarea class="form-control" id="concern" name="concern" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <input class="form-check-input" type="checkbox" id="privacy" name="privacy">
+            <label class="form-check-label" for="privacy">Ich akzeptiere die <a
+                    href="/privacy">Datenschutzerklärung</a>.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" aria-describedby="contactPrivacy">Abschicken</button>
+    </fieldset>
+</form>
+<div id="form-success" class="d-none text-primary lur-jumbotron my-2 px-4">
+    <div class="row">
+        <div class="col-12 col-sm-2 text-center my-4">
+            <svg class="bi" width="40" height="40" fill="currentColor">
+                <use xlink:href="/icons/bootstrap-icons.svg#check2" />
+            </svg>
+        </div>
+        <div class="col-12 col-sm-10 text-center text-sm-left my-4 ">Vielen Dank für Ihre Kontaktanfrage. Ich melde mich
+            so schnell wie möglich zurück.</div>
+    </div>
+</div>
