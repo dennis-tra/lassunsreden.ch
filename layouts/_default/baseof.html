@@ -44,6 +44,16 @@
     <script src="/js/jquery-3.5.1.min.js"></script>
     <script src="/js/bootstrap-4.3.1.min.js"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZKXY2YE1E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3ZKXY2YE1E');
+    </script>
+
     <title>{{ .Title }}</title>
 
     {{ $style := resources.Get "scss/main.scss" | resources.ToCSS (dict "outputStyle" "compressed") | resources.Minify | resources.Fingerprint }}
