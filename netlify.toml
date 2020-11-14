@@ -22,3 +22,8 @@
 # Staging context: only deploys from the staging branch
 [context.staging]
     environment = { HUGO_ENV = "production" }
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
