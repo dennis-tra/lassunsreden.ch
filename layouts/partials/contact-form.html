@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
     function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
     $(document).ready(function () {
@@ -74,7 +74,7 @@
         </div>
         <div class="form-group d-none">
             <label for="street">Straße</label> <!-- Honey pot -->
-            <input type="street" name="street" class="form-control" id="street" placeholder="Straße">
+            <input type="text" name="street" class="form-control" id="street" placeholder="Straße">
         </div>
         <div class="form-group">
             <label for="phone">Telefonnummer (optional)</label>
@@ -90,7 +90,7 @@
                     href="/privacy">Datenschutzerklärung</a>.</label>
         </div>
 
-        <button type="submit" class="btn btn-primary" aria-describedby="contactPrivacy">Abschicken</button>
+        <button type="submit" class="btn btn-primary">Abschicken</button>
     </fieldset>
 </form>
 <div id="form-success" class="d-none text-primary lur-jumbotron my-2 px-4">
