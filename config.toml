@@ -1,6 +1,7 @@
 baseURL = "https://lassunsreden.ch/"
 languageCode = "de-ch"
 title = "Systemische Beratung & Therapie | Marie Lass"
+disableKinds = ["taxonomy", "term"]
 
 [params]
 description = "Lass uns reden, Problem! Ich unterstütze Sie bei einem konstruktiven Dialog, der den Abschied von Ihrem Problem erleichtert."
