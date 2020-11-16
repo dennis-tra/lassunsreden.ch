@@ -14,7 +14,7 @@
                 <h3 class="h5 mb-3">Navigation</h3>
                 <ul class="ml-lg-auto">
                     <li class="my-1 my-sm-0">
-                        <a class="text-white" href="/#">Home</a>
+                        <a class="text-white" href="{{ with .File }}{{ if ne  .Dir "" }}/{{ end }}{{ end }}#">Home</a>
                     </li>
                     <li class="my-1 my-sm-0">
                         <a class="text-white" href="/#offer">Angebot</a>
