@@ -1,267 +1,291 @@
 .white-gradient {
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 255) 50%,
-    rgba(255, 255, 255, 0) 80%
-  );
-  position: relative;
-  overflow: hidden;
-
-  & > img.background {
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-  }
-
-  @media (max-width: map-get($grid-breakpoints, "lg")-1) {
-    background: none;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 255) 50%,
+        rgba(255, 255, 255, 0) 80%
+    );
+    position: relative;
+    overflow: hidden;
 
     & > img.background {
-      position: inherit;
-      max-height: 400px;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
     }
-  }
+
+    @media (max-width: map-get($grid-breakpoints, "lg")-1) {
+        background: none;
+
+        & > img.background {
+            position: inherit;
+            max-height: 400px;
+        }
+    }
 }
 
 #hero > .container {
-  height: calc(100vh - 56px);
-
-  @media (max-width: map-get($grid-breakpoints, "sm")-1) {
-    h1 {
-      font-size: 8vw;
+    height: calc(100vh - 56px);
+    position: relative;
+    @media (max-width: map-get($grid-breakpoints, "sm")-1) {
+        h1 {
+            font-size: 8vw;
+        }
+        h2 {
+            font-size: 7vw;
+        }
     }
-    h2 {
-      font-size: 7vw;
-    }
-  }
 }
 
 .banner {
-  color: white;
-  background: $primary;
-  text-align: center;
+    color: white;
+    background: $primary;
+    text-align: center;
 
-  p {
-    margin: 0;
-  }
+    p {
+        margin: 0;
+    }
 
-  .divider {
-    width: 70px;
-    margin: 1rem auto;
-    height: 0.5px;
-    background-color: white;
-  }
+    .divider {
+        width: 70px;
+        margin: 1rem auto;
+        height: 0.5px;
+        background-color: white;
+    }
 
-  .banner-quote {
-    // text-transform: uppercase;
-  }
+    .banner-quote {
+        // text-transform: uppercase;
+    }
 
-  .banner-author {
-    font-style: italic;
-    font-weight: 100;
-  }
+    .banner-author {
+        font-style: italic;
+        font-weight: 100;
+    }
 }
 
 .vita {
-  .vita-entry {
-    .vita-time {
-      text-align: right;
-      min-width: 25vw;
-      width: 25vw;
+    .vita-entry {
+        .vita-time {
+            text-align: right;
+            min-width: 25vw;
+            width: 25vw;
 
-      @media (min-width: map-get($grid-breakpoints, "sm")) {
-        width: 200px;
-        min-width: inherit;
-      }
+            @media (min-width: map-get($grid-breakpoints, "sm")) {
+                width: 200px;
+                min-width: inherit;
+            }
 
-      @media (min-width: map-get($grid-breakpoints, "md")) {
-        width: 200px;
-      }
+            @media (min-width: map-get($grid-breakpoints, "md")) {
+                width: 200px;
+            }
 
-      @media (min-width: map-get($grid-breakpoints, "lg")) {
-        width: 400px;
-      }
-    }
-
-    .vita-center {
-      display: flex;
-      width: 20px;
-      min-width: 20px;
-      flex-direction: column;
-      padding-top: 0.5rem;
-      position: relative;
-
-      .dot {
-        $dot-size: 8px;
-        position: absolute;
-        top: 0.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        height: $dot-size;
-        width: $dot-size;
-        border-radius: 50%;
-        background: $primary;
-      }
-
-      .verticle-line {
-        position: absolute;
-        width: 1px;
-        bottom: 0;
-        top: 0.5rem;
-        left: 50%;
-        background-color: $gray-200;
-        transform: translateX(-50%);
-        z-index: -1;
-
-        &.subsequent {
-          top: -2 * $spacer;
+            @media (min-width: map-get($grid-breakpoints, "lg")) {
+                width: 400px;
+            }
         }
-      }
+
+        .vita-center {
+            display: flex;
+            width: 20px;
+            min-width: 20px;
+            flex-direction: column;
+            padding-top: 0.5rem;
+            position: relative;
+
+            .dot {
+                $dot-size: 8px;
+                position: absolute;
+                top: 0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                height: $dot-size;
+                width: $dot-size;
+                border-radius: 50%;
+                background: $primary;
+            }
+
+            .verticle-line {
+                position: absolute;
+                width: 1px;
+                bottom: 0;
+                top: 0.5rem;
+                left: 50%;
+                background-color: $gray-200;
+                transform: translateX(-50%);
+                z-index: -1;
+
+                &.subsequent {
+                    top: -2 * $spacer;
+                }
+            }
+        }
+
+        .vita-description {
+            @media (min-width: map-get($grid-breakpoints, "sm")) {
+                width: 400px;
+            }
+
+            @media (min-width: map-get($grid-breakpoints, "md")) {
+                width: 500px;
+            }
+
+            @media (min-width: map-get($grid-breakpoints, "lg")) {
+                width: 400px;
+            }
+        }
     }
-
-    .vita-description {
-      @media (min-width: map-get($grid-breakpoints, "sm")) {
-        width: 400px;
-      }
-
-      @media (min-width: map-get($grid-breakpoints, "md")) {
-        width: 500px;
-      }
-
-      @media (min-width: map-get($grid-breakpoints, "lg")) {
-        width: 400px;
-      }
-    }
-  }
 }
 
 img.portrait {
-  width: 220px;
-  // box-shadow: 0px 0px 8px 0px $dark;
+    width: 220px;
+    // box-shadow: 0px 0px 8px 0px $dark;
 }
 
 .lur-jumbotron {
-  color: $primary;
-  padding: 2rem 2rem;
-  background-color: rgba($primary, 0.05);
-  border-radius: 0.3rem;
+    color: $primary;
+    padding: 2rem 2rem;
+    background-color: rgba($primary, 0.05);
+    border-radius: 0.3rem;
 
-  .price {
-    min-width: 60px;
-    text-align: right;
-  }
+    .price {
+        min-width: 60px;
+        text-align: right;
+    }
 }
 
 .lur-jumbotron-primary {
-  color: $primary;
-  background-color: rgba($primary, 0.05);
+    color: $primary;
+    background-color: rgba($primary, 0.05);
 }
 
 .lur-jumbotron-yellow {
-  color: darken($yellow, 10);
-  background-color: rgba($yellow, 0.1);
+    color: darken($yellow, 10);
+    background-color: rgba($yellow, 0.1);
 }
 
 .mt-6 {
-  margin-top: 5 * $spacer;
+    margin-top: 5 * $spacer;
 }
 
 .mb-6 {
-  margin-bottom: 5 * $spacer;
+    margin-bottom: 5 * $spacer;
 }
 
 .my-6 {
-  margin-bottom: 5 * $spacer;
-  margin-top: 5 * $spacer;
+    margin-bottom: 5 * $spacer;
+    margin-top: 5 * $spacer;
 }
 
 .mt-7 {
-  margin-top: 8 * $spacer;
+    margin-top: 8 * $spacer;
 }
 
 .mb-7 {
-  margin-bottom: 8 * $spacer;
+    margin-bottom: 8 * $spacer;
 }
 
 .my-7 {
-  margin-bottom: 8 * $spacer;
-  margin-top: 8 * $spacer;
+    margin-bottom: 8 * $spacer;
+    margin-top: 8 * $spacer;
 }
 
 footer {
-  ul {
-    padding-left: $spacer;
-    list-style-type: none;
-  }
-
-  .love {
-    font-size: $font-size-sm;
-    margin: 0;
-
-    .heart-icon {
-      color: #fff13b;
-    }
-  }
-
-  @media (max-width: map-get($grid-breakpoints, "sm") - 1) {
-    text-align: center;
     ul {
-      padding: 0;
+        padding-left: $spacer;
+        list-style-type: none;
     }
-  }
+
+    .love {
+        font-size: $font-size-sm;
+        margin: 0;
+
+        .heart-icon {
+            color: #fff13b;
+        }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, "sm") - 1) {
+        text-align: center;
+        ul {
+            padding: 0;
+        }
+    }
 }
 
 $checkbox-color: white;
 $checkbox-color-checked: $primary;
 
 input[type="checkbox"] {
-  display: none;
+    display: none;
 
-  & + label:before {
-    background: $checkbox-color;
-    content: "\00a0";
-    display: inline-block;
-    font: 20px/1em sans-serif;
-    height: 25px;
-    width: 25px;
-    margin: 0 0.25em 0 0;
-    padding: 0;
-    vertical-align: top;
-    border: 1px solid #ced4da;
-    border-radius: $border-radius;
-  }
-  &.is-invalid + label:before {
-    border-color: $red;
-  }
+    & + label:before {
+        background: $checkbox-color;
+        content: "\00a0";
+        display: inline-block;
+        font: 20px/1em sans-serif;
+        height: 25px;
+        width: 25px;
+        margin: 0 0.25em 0 0;
+        padding: 0;
+        vertical-align: top;
+        border: 1px solid #ced4da;
+        border-radius: $border-radius;
+    }
+    &.is-invalid + label:before {
+        border-color: $red;
+    }
 
-  & + label:hover:before {
-    background: darken($checkbox-color, 10%);
-  }
+    & + label:hover:before {
+        background: darken($checkbox-color, 10%);
+    }
 
-  & + label:active:before {
-    background: darken($checkbox-color, 20%);
-  }
+    & + label:active:before {
+        background: darken($checkbox-color, 20%);
+    }
 
-  &:checked + label:hover:before {
-    background: darken($checkbox-color-checked, 5%);
-  }
+    &:checked + label:hover:before {
+        background: darken($checkbox-color-checked, 5%);
+    }
 
-  &:checked + label:active:before {
-    background: darken($checkbox-color-checked, 10%);
-  }
+    &:checked + label:active:before {
+        background: darken($checkbox-color-checked, 10%);
+    }
 
-  &:checked + label:before {
-    background: $checkbox-color-checked;
-    color: $checkbox-color;
-    content: "\2713";
-    text-align: center;
-    line-height: 26px;
-  }
+    &:checked + label:before {
+        background: $checkbox-color-checked;
+        color: $checkbox-color;
+        content: "\2713";
+        text-align: center;
+        line-height: 26px;
+    }
 }
 
-h1, h2, h3, h4, h5 {
-  scroll-margin-top: 56px;
+h1,
+h2,
+h3,
+h4,
+h5 {
+    scroll-margin-top: 56px;
+}
+
+#scroll-indicator {
+    position: absolute;
+    bottom: 9vh;
+    left: calc(50%-16px);
+    animation: pulse 2s infinite;
+    animation-timing-function: ease-in-out;
+
+    @keyframes pulse {
+        0% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.3;
+        }
+    }
 }

@@ -3,6 +3,15 @@
     <div class="container d-flex flex-fill flex-column justify-content-center align-items-center text-center">
         <h1>Beratung & Therapie<br class="d-sm-none" /><span class="d-sm-inline">&nbsp;</span>in Kreuzlingen</h1>
         <h2>Marie Lass</h2>
+
+
+        <div id="scroll-indicator">
+            <div><svg class="bi" width="32" height="32">
+                    <use xlink:href="/icons/bootstrap-icons.svg#arrow-down" />
+                </svg>
+            </div>
+            <!-- <div class="text-muted mt-2 font-weight-light">Scrollen</div> -->
+        </div>
     </div>
 </section>
 
@@ -44,7 +53,7 @@
                 {{ range $.Site.Data.support.callouts }}
                 <div class="col-6 col-md-6 col-lg-3 text-center text-dark my-4">
                     <div class="my-3">
-                        <svg class="bi" width="32" height="32" fill="currentColor">
+                        <svg class="bi" width="32" height="32">
                             <use xlink:href="/icons/bootstrap-icons.svg#{{ .icon }}" />
                         </svg>
                     </div>
@@ -202,7 +211,7 @@
             </div>
             <div
                 class="col-12 col-lg-6 d-none d-lg-flex justify-content-center align-items-center text-primary mt-4 mt-sm-0">
-                <span><svg class="bi" width="100" height="100" fill="currentColor">
+                <span><svg class="bi" width="100" height="100">
                         <use xlink:href="/icons/bootstrap-icons.svg#envelope" />
                     </svg></span>
             </div>
