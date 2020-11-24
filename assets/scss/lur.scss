@@ -269,23 +269,3 @@ h4,
 h5 {
     scroll-margin-top: 56px;
 }
-
-#scroll-indicator {
-    position: absolute;
-    bottom: 9vh;
-    left: calc(50%-16px);
-    animation: pulse 2s infinite;
-    animation-timing-function: ease-in-out;
-
-    @keyframes pulse {
-        0% {
-            opacity: 0.3;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0.3;
-        }
-    }
-}
