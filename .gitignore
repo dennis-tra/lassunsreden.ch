@@ -70,4 +70,6 @@ Temporary Items
 !.vscode/extensions.json
 *.code-workspace
 
+node_modules
+
 # End of https://www.toptal.com/developers/gitignore/api/go,hugo,vscode,macos

@@ -1,0 +1,13 @@
+{
+  "name": "lassunsreden.ch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:dennis-tra/lassunsreden.ch.git",
+  "author": "Dennis Trautwein <git@dtrautwein.eu>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "postcss-cli": "^8.3.0"
+  }
+}

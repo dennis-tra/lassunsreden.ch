@@ -56,8 +56,12 @@
 
     <title>{{ .Title }}</title>
 
-    {{ $style := resources.Get "scss/main.scss" | resources.ToCSS (dict "outputStyle" "compressed") | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ $styles := resources.Get "scss/main.scss" | toCSS | postCSS | minify }}
+    <style>
+        {{ $styles.Content | safeCSS }}
+    </style>
+
+    
 </head>
 
 <body>
