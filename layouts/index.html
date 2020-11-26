@@ -15,7 +15,9 @@
 
 <section class="mb-7">
     <div class="white-gradient mb-5">
-        <img class="background" src="/img/boy-stairs-cropped-compressed.jpg"
+        {{ $boyResource:= .Page.Resources.GetMatch "boy-stairs.jpeg" }}
+        {{ $boy := $boyResource.Resize "x200 q100" }}
+        <img class="background" src="/img/boy-stairs-cropped-compressed.jpg" srcset="{{ $boy.RelPermalink | safeURL }}"
             alt="Ein kleiner Junge steht vor einer Treppem mit sehr vielen, scheinbar unüberwindbaren Stufen.">
         <div class="container py-5">
             <div class="row">
@@ -66,7 +68,9 @@
     <div class="container pb-5">
         <div class="row">
             <div class="col mb-5 order-lg-2 col-lg-6 d-flex justify-content-center align-items-center">
-                <img class="rounded-circle" src="/img/marie-rumo-cropped-compressed.jpeg"
+                {{ $portraitResource:= .Page.Resources.GetMatch "marie-portrait.jpeg" }}
+                {{ $portrait := $portraitResource.Resize "220x220 q100" }}
+                <img class="rounded-circle" src="{{ $portrait.RelPermalink | safeURL }}"
                     alt="Portrait von Marie Lass zusammen mit ihrem Hund Rumo." width="220" height="220">
             </div>
             <div class="col col-12 col-lg-6">
