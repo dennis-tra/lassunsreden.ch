@@ -16,8 +16,11 @@
 <section class="mb-7">
     <div class="white-gradient mb-5">
         {{ $boyResource:= .Page.Resources.GetMatch "boy-stairs.jpeg" }}
-        {{ $boy := $boyResource.Resize "x200 q100" }}
-        <img class="background" src="/img/boy-stairs-cropped-compressed.jpg" srcset="{{ $boy.RelPermalink | safeURL }}"
+        {{ $boy1 := $boyResource.Resize "x200 q100" }}
+        {{ $boy2 := $boyResource.Resize "x400 q100" }}
+        <img class="background" src="/img/boy-stairs-cropped-compressed.jpg"
+            srcset="{{ $boy1.RelPermalink | safeURL }} {{ $boy1.Width }}w, {{ $boy2.RelPermalink | safeURL }} {{ $boy2.Width }}w, /img/boy-stairs-cropped-compressed.jpg 2739w"
+            sizes="(max-width: 576px) {{ $boy1.Width }}px, (max-width: 768px) {{ $boy2.Width }}px, 2739w"
             alt="Ein kleiner Junge steht vor einer Treppem mit sehr vielen, scheinbar unüberwindbaren Stufen.">
         <div class="container py-5">
             <div class="row">
