@@ -21,7 +21,7 @@
 
                 var successFunc = function successFunc() {
                     contactFormFieldset.attr("disabled", null);
-                    formSuccess.removeClass("d-none");
+                    formError.addClass("d-none");
                     formSuccess.addClass("d-flex");
                     contactForm.addClass("d-none");
                 };
@@ -29,7 +29,8 @@
                 var errorFunc = function error(xhr, status, _error) {
                     contactFormFieldset.attr("disabled", null);
                     formError.removeClass("d-none");
-                    console.error(xhr);
+                    formSuccess.addClass("d-none");
+                    console.error(xhr, status, _error);
                 };
 
                 // Return early if honeypot is set.
@@ -58,7 +59,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "https://hooks.zapier.com/hooks/catch/8883211/ol2cjld",
+                    url: "https://automation.lassunsreden.ch/users/2/web_requests/21/E32EF1C3-3A99-4266-8080-64C0980D3CEE",
                     data: formData,
                     success: successFunc,
                     error: errorFunc,
@@ -69,7 +70,10 @@
     });
 </script>
 <div id="form-error" class="d-none alert alert-danger" role="alert">
-    Beim Absenden ist ein Fehler aufgetreten.
+    Beim Absenden ist ein Fehler aufgetreten. Sollte das Problem bestehen bleiben können Sie mich auch via E-Mail über
+    <a
+        href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x62;&#x65;&#x72;&#x61;&#x74;&#x75;&#x6e;&#x67;&#x40;&#x6c;&#x61;&#x73;&#x73;&#x75;&#x6e;&#x73;&#x72;&#x65;&#x64;&#x65;&#x6e;&#x2e;&#x63;&#x68;">beratung@lassunsreden.ch</a>
+    erreichen.
 </div>
 <form id="contact-form">
     <fieldset>
