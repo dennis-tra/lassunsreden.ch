@@ -1,64 +1,69 @@
 <script>
-    function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-    $(document).ready(function () {
-        var formSuccess = $("#form-success");
-        var formError = $("#form-error");
-        var contactForm = $("#contact-form");
-        var contactFormFieldset = $("#contact-form fieldset");
-        var contactFormSubmitBtn = $("#contact-form button");
+    // Wait until deferred jQuery is loaded
+    document.addEventListener('DOMContentLoaded', function () {
 
-        contactFormSubmitBtn.click(function (e) {
-            e.preventDefault();
+        function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-            var formData = contactForm.serializeArray().reduce(function (p, c) {
-                return Object.assign({}, p, _defineProperty({}, c.name, c.value));
-            }, {});
+        $(document).ready(function () {
+            var formSuccess = $("#form-success");
+            var formError = $("#form-error");
+            var contactForm = $("#contact-form");
+            var contactFormFieldset = $("#contact-form fieldset");
+            var contactFormSubmitBtn = $("#contact-form button");
 
-            var successFunc = function successFunc() {
-                contactFormFieldset.attr("disabled", null);
-                formSuccess.removeClass("d-none");
-                formSuccess.addClass("d-flex");
-                contactForm.addClass("d-none");
-            };
+            contactFormSubmitBtn.click(function (e) {
+                e.preventDefault();
 
-            var errorFunc = function error(xhr, status, _error) {
-                contactFormFieldset.attr("disabled", null);
-                formError.removeClass("d-none");
-                console.error(xhr);
-            };
+                var formData = contactForm.serializeArray().reduce(function (p, c) {
+                    return Object.assign({}, p, _defineProperty({}, c.name, c.value));
+                }, {});
 
-            // Return early if honeypot is set.
-            if (formData.street) {
-                successFunc();
-                return;
-            }
+                var successFunc = function successFunc() {
+                    contactFormFieldset.attr("disabled", null);
+                    formSuccess.removeClass("d-none");
+                    formSuccess.addClass("d-flex");
+                    contactForm.addClass("d-none");
+                };
 
-            var requiredFields = ["email", "concern", "privacy"];
-            var hasError = false;
-            for (let i = 0; i < requiredFields.length; i++) {
-                var field = requiredFields[i];
-                if (!formData[field]) {
-                    hasError = true;
-                    $("#" + field).addClass("is-invalid");
-                } else {
-                    $("#" + field).removeClass("is-invalid");
+                var errorFunc = function error(xhr, status, _error) {
+                    contactFormFieldset.attr("disabled", null);
+                    formError.removeClass("d-none");
+                    console.error(xhr);
+                };
+
+                // Return early if honeypot is set.
+                if (formData.street) {
+                    successFunc();
+                    return;
                 }
-            }
 
-            if (hasError) {
-                return;
-            }
+                var requiredFields = ["email", "concern", "privacy"];
+                var hasError = false;
+                for (let i = 0; i < requiredFields.length; i++) {
+                    var field = requiredFields[i];
+                    if (!formData[field]) {
+                        hasError = true;
+                        $("#" + field).addClass("is-invalid");
+                    } else {
+                        $("#" + field).removeClass("is-invalid");
+                    }
+                }
 
-            contactFormFieldset.attr("disabled", true);
+                if (hasError) {
+                    return;
+                }
 
-            $.ajax({
-                type: "POST",
-                url: "https://hooks.zapier.com/hooks/catch/8883211/ol2cjld",
-                data: formData,
-                success: successFunc,
-                error: errorFunc,
-                dataType: "json"
+                contactFormFieldset.attr("disabled", true);
+
+                $.ajax({
+                    type: "POST",
+                    url: "https://hooks.zapier.com/hooks/catch/8883211/ol2cjld",
+                    data: formData,
+                    success: successFunc,
+                    error: errorFunc,
+                    dataType: "json"
+                });
             });
         });
     });
