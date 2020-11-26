@@ -1,4 +1,0 @@
-UserAgent: *
-Allow: /
-Disallow: /privacy/
-Disallow: /impressum/
