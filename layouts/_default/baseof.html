@@ -14,6 +14,10 @@
     <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
     <meta property="og:image" content="{{ "/img/marie-rumo-cropped-compressed.jpeg" | absURL }}" />
 
+    {{ if not .Page.Params.index}}
+    <meta name="robots" content="noindex, follow" />
+    {{ end }}
+
 
     <link rel="shortcut icon" href="/favicon/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon/favicon.ico">
